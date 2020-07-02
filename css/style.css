@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+* {
+  font-family: 'Nanum Pen Script', cursive;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
