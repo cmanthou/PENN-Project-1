@@ -59,3 +59,13 @@ p {
 footer.page-footer {
   margin: 0;
 }
+.text-size {
+  font-size: 100px;
+}
+.text-size2 {
+  font-size: 50px;
+}
+.light {
+  font-size: 20px;
+}
+
