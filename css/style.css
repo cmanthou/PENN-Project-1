@@ -69,3 +69,12 @@ footer.page-footer {
   font-size: 20px;
 }
 
+
+.clock {
+	text-align: left;
+	color:blue;
+	float: right;
+	padding-right: 2rem;
+	font-family:Georgia;
+	margin-top: 5px;	
+}	

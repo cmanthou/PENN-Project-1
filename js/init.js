@@ -44,7 +44,47 @@ $(".btn").on("click", function (event) {
       Authorization: `Bearer ${token}`,
     },
     method: "GET",
+    data: {
+      location: $("#cityInput").val(),      
+    },
   }).then(function (response) {
     console.log(response);
+    var el = $("<div>");
+    el.text(JSON.stringify(response));
+    $("#cityList").append(el);
   });
 });
+
+$(window).on('load', function () {
+  currentLocation();
+});
+
+// API Key for current date /time  
+var APIKey = "09e0d7e534e41ce68ba5f2577fa5f760";
+var q = "";
+
+//Function to get weather details 
+function getWeather(q) {
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + q + "&units=imperial&appid=" + APIKey;
+  $.ajax({
+    // gets the current weather info
+    url: queryURL,
+    method: "GET",
+
+  }).then(function (response) {
+    console.log(response)    
+    $(".clock").append($("<h5> Current Location : " + response.name + "</h5>"));   
+  });
+}
+
+// Display Current Locaion 
+function currentLocation() {
+  $.ajax({
+    url: "https://freegeoip.app/json/",
+    method: "GET",
+  }).then(function (response) {
+    q = response.city || 'philadelphia';
+    console.log(q);
+    getWeather(q);
+  });
+};
