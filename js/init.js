@@ -78,6 +78,19 @@ function results(response) {
       address.postcode,
     ].reduce(appendIfExists, "");
     div.text(addressString);
+    var button = $("<button>Get Directions</button>");
+    button.click(function(){
+      console.log("button Click" );
+      var start =  $("#cityInput").val();
+      var origin = $("#mapbox-directions-origin-input > div > input")[0];
+      var destination = $("#mapbox-directions-destination-input > div > input")[0];
+      var driveBtn = $("#mapbox-directions-profile-driving");
+      // origin.value = start;
+      destination.value = address.city + ", " +  address.state + " " + address.postcode + " United States";
+      driveBtn.click();
+
+    })
+    div.append(button);
     $("#cityList").append(a);
     $("#cityList").append(div);
   }
